@@ -1,0 +1,26 @@
+public class TigerItem {
+
+    private String name;
+    private double price;
+
+    // Constructor to initialize the snack item
+    public TigerItem(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    // Getter for the name of the snack
+    public String getName2() {
+        return name;
+    }
+
+    // Getter for the price of the snack
+    public double getPrice2() {
+        return price;
+    }
+
+
+    public String toString() {
+        return name + " - $" + price;
+    }
+}
