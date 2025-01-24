@@ -1,0 +1,312 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Predefined weekly menu and snack items
+        WeeklyMenu weeklyMenu = new WeeklyMenu();
+        SnackMenu[] menu = new SnackMenu[]{
+                new SnackMenu("Fruit Roll Ups", "A sweet fruit snack.", 1.50),
+                new SnackMenu("Water", "Refreshing bottled water.", 1.00),
+                new SnackMenu("Sprite", "A crisp, lemon-lime soda.", 1.75),
+                new SnackMenu("Coke", "Classic cola soda.", 1.75),
+                new SnackMenu("Fanta", "Orange flavored soda.", 1.75),
+                new SnackMenu("Rice Krispie", "A crunchy, sweet rice treat.", 2.00),
+                new SnackMenu("Muffin", "A delicious blueberry muffin.", 2.50),
+                new SnackMenu("Pink Lemonade", "Tart and refreshing pink lemonade.", 2.00),
+                new SnackMenu("BBQ Chips", "Salty chips with a smoky BBQ flavor.", 1.50),
+                new SnackMenu("Pop Tarts", "Sweet pastry filled with fruit or frosting.", 1.25),
+                new SnackMenu("Plain Chips", "Classic salty potato chips.", 1.25),
+                new SnackMenu("Nacho Cheese Doritos", "Cheese-flavored corn chips.", 2.00),
+                new SnackMenu("BBQ Doritos", "BBQ-flavored corn chips.", 2.00)
+        };
+
+        TigerItem coffee = new TigerItem("Coffee", 2.00);
+        TigerItem hotTea = new TigerItem("Hot Tea",  2.00);
+        TigerItem hotChoco = new TigerItem("Hot Chocolate",  2.00);
+        TigerItem parfait = new TigerItem("Parfait",  3.00);
+        TigerItem espresso = new TigerItem("Espresso", 1.00);
+        TigerItem latCap = new TigerItem("Latte/Cappucino",  3.00);
+        TigerItem iced = new TigerItem("Iced Tea",  2.50);
+        TigerItem lemonade = new TigerItem("Lemonade",  2.50);
+
+
+
+
+        // Scanner for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Welcome message and options
+        System.out.println("Welcome to the School Cafeteria System!");
+        System.out.println("Please type in the number corresponding to the option you want to pick:");
+        System.out.println("1. View the school menu for the week.");
+        System.out.println("2. View the snack shop menu.");
+        System.out.println("3. Place an order from snackshop.");
+        System.out.println("4. Write in our suggestion box.");
+        System.out.println("5. View previous suggestions.");
+        System.out.println("6. View Tiger Cafe Menu.");
+        System.out.println("7. Order from Tiger Cafe Menu.");
+
+        // Get the user's choice
+        int mainChoice = scanner.nextInt();
+        scanner.nextLine(); // To consume the newline left after nextInt()
+
+        // Show menu or take action based on user's choice using if-else conditions
+        if (mainChoice == 1) {
+            // Show the weekly school menu
+            System.out.println("\n** Weekly School Menu **");
+            //weeklyMenu.displayCafeBCdisc();  // Display Cafe B & C menu (unchanging)
+            weeklyMenu.displayCafeAMenuForWeek();
+            weeklyMenu.displayCafeBCdisc();// Display Cafe A's rotating menu
+        } else if (mainChoice == 2) {
+            // Show the snack shop menu
+            System.out.println("\n** Snack Shop Menu **");
+            System.out.println("Welcome to the Snack Shop! Please choose a snack from the following list:");
+            for (int i = 0; i < menu.length; i++) {
+                System.out.println((i + 1) + ". " + menu[i].getName());
+            }
+
+            System.out.print("\nEnter the number of the snack you want to see details for: ");
+            int snackChoice = scanner.nextInt();
+            scanner.nextLine();  // Consume newline
+
+            if (snackChoice >= 1 && snackChoice <= menu.length) {
+                // Show snack details
+                System.out.println("\nHere are the details of your chosen snack:");
+                System.out.println(menu[snackChoice - 1]);
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+        } else if (mainChoice == 3) {
+            // Place an order
+            System.out.println("\n** Place Your Order **");
+
+            // Get the student's full name and room code
+            System.out.print("Enter your full name: ");
+            String studentName = scanner.nextLine();
+            System.out.print("Enter your room code: ");
+            String roomCode = scanner.nextLine();
+            System.out.print("Pick up or delivery: ");
+            String pod = scanner.nextLine();
+
+
+
+            // Create SnackItems for all the snacks in the menu
+            SnackItem fruitRollUps = new SnackItem("Fruit Roll Ups", 1.50);
+            SnackItem water = new SnackItem("Water", 1.00);
+            SnackItem sprite = new SnackItem("Sprite", 1.75);
+            SnackItem coke = new SnackItem("Coke", 1.75);
+            SnackItem fanta = new SnackItem("Fanta", 1.75);
+            SnackItem riceKrispie = new SnackItem("Rice Krispie", 2.00);
+            SnackItem muffin = new SnackItem("Muffin", 2.50);
+            SnackItem pinkLemonade = new SnackItem("Pink Lemonade", 2.00);
+            SnackItem bbqChips = new SnackItem("BBQ Chips", 1.50);
+            SnackItem popTarts = new SnackItem("Pop Tarts", 1.25);
+            SnackItem plainChips = new SnackItem("Plain Chips", 1.25);
+            SnackItem nachoCheeseDoritos = new SnackItem("Nacho Cheese Doritos", 2.00);
+            SnackItem bbqDoritos = new SnackItem("BBQ Doritos", 2.00);
+
+
+            // Display snack options for the user to choose from
+            System.out.println("\nSelect snacks by typing the corresponding number:");
+            System.out.println("1. Fruit Roll Ups - $1.50");
+            System.out.println("2. Water - $1.00");
+            System.out.println("3. Sprite - $1.75");
+            System.out.println("4. Coke - $1.75");
+            System.out.println("5. Fanta - $1.75");
+            System.out.println("6. Rice Krispie - $2.00");
+            System.out.println("7. Muffin - $2.50");
+            System.out.println("8. Pink Lemonade - $2.00");
+            System.out.println("9. BBQ Chips - $1.50");
+            System.out.println("10. Pop Tarts - $1.25");
+            System.out.println("11. Plain Chips - $1.25");
+            System.out.println("12. Nacho Cheese Doritos - $2.00");
+            System.out.println("13. BBQ Doritos - $2.00");
+
+
+            // Get the selected snacks
+            SnackItem selectedItem1 = null;
+            SnackItem selectedItem2 = null;
+            SnackItem selectedItem3 = null;
+
+            // Ask for the first snack
+            System.out.print("Enter the number of your first snack(Max 3 per order): ");
+            int choice1 = scanner.nextInt();
+            if (choice1 == 1) selectedItem1 = fruitRollUps;
+            else if (choice1 == 2) selectedItem1 = water;
+            else if (choice1 == 3) selectedItem1 = sprite;
+            else if (choice1 == 4) selectedItem1 = coke;
+            else if (choice1 == 5) selectedItem1 = fanta;
+            else if (choice1 == 6) selectedItem1 = riceKrispie;
+            else if (choice1 == 7) selectedItem1 = muffin;
+            else if (choice1 == 8) selectedItem1 = pinkLemonade;
+            else if (choice1 == 9) selectedItem1 = bbqChips;
+            else if (choice1 == 10) selectedItem1 = popTarts;
+            else if (choice1 == 11) selectedItem1 = plainChips;
+            else if (choice1 == 12) selectedItem1 = nachoCheeseDoritos;
+            else if (choice1 == 13) selectedItem1 = bbqDoritos;
+
+// Ask for the second snack
+            System.out.print("Enter the number of your second snack (or 0 if none): ");
+            int choice2 = scanner.nextInt();
+            if (choice2 == 1) selectedItem2 = fruitRollUps;
+            else if (choice2 == 2) selectedItem2 = water;
+            else if (choice2 == 3) selectedItem2 = sprite;
+            else if (choice2 == 4) selectedItem2 = coke;
+            else if (choice2 == 5) selectedItem2 = fanta;
+            else if (choice2 == 6) selectedItem2 = riceKrispie;
+            else if (choice2 == 7) selectedItem2 = muffin;
+            else if (choice2 == 8) selectedItem2 = pinkLemonade;
+            else if (choice2 == 9) selectedItem2 = bbqChips;
+            else if (choice2 == 10) selectedItem2 = popTarts;
+            else if (choice2 == 11) selectedItem2 = plainChips;
+            else if (choice2 == 12) selectedItem2 = nachoCheeseDoritos;
+            else if (choice2 == 13) selectedItem2 = bbqDoritos;
+
+// Ask for the third snack
+            System.out.print("Enter the number of your third snack (or 0 if none): ");
+            int choice3 = scanner.nextInt();
+            if (choice3 == 1) selectedItem3 = fruitRollUps;
+            else if (choice3 == 2) selectedItem3 = water;
+            else if (choice3 == 3) selectedItem3 = sprite;
+            else if (choice3 == 4) selectedItem3 = coke;
+            else if (choice3 == 5) selectedItem3 = fanta;
+            else if (choice3 == 6) selectedItem3 = riceKrispie;
+            else if (choice3 == 7) selectedItem3 = muffin;
+            else if (choice3 == 8) selectedItem3 = pinkLemonade;
+            else if (choice3 == 9) selectedItem3 = bbqChips;
+            else if (choice3 == 10) selectedItem3 = popTarts;
+            else if (choice3 == 11) selectedItem3 = plainChips;
+            else if (choice3 == 12) selectedItem3 = nachoCheeseDoritos;
+            else if (choice3 == 13) selectedItem3 = bbqDoritos;
+
+
+            // Create a SnackOrder object with the student's info and selected snacks
+            SnackOrder order = new SnackOrder(studentName, roomCode, selectedItem1, selectedItem2, selectedItem3, pod);
+
+            // Display the order summary and total price
+            System.out.println("\nOrder Summary:");
+            System.out.println(order);
+            System.out.println("Your snacks will be delivered in 10 minutes or less. Enjoy!");
+        } else if (mainChoice == 4){
+
+            System.out.println("Please enter your suggestion.");
+            String suggestion = scanner.nextLine();
+            if (suggestion.equals(null)) {
+                System.out.println("Suggestion cannot be empty.");
+            } else {
+                System.out.println("Thank you for your suggestion.");
+            }
+
+        } else if (mainChoice == 5){
+            System.out.println("Add a notification setting when order is ready.");
+            System.out.println("There should be air fryers in the cafeteria!");
+            System.out.println("There should be a 'sold out' notification.");
+            System.out.println("The snackshop should have a rewards program.");
+            System.out.println("You should implement an ingredients list for every food.");
+            System.out.println("Cheaper. some of us are broke.");
+            System.out.println("Take less than 10 minutes I get too hungry ");
+            System.out.println("Some of the food in the cafe is cold");
+            System.out.println("Update the menu every week");
+            System.out.println("What about the little secluded line in Cafe A?");
+            System.out.println("What if I don't know my room number?");
+
+
+        }else if (mainChoice == 6){ //WOULD NEEDA CHANGE ORDER TO CHOICE 4
+            System.out.println("\n** Cafe Menu **");
+            System.out.println("Welcome to the Cafe! Here is the menu! ");
+            System.out.println("1. Coffee - $1.50");
+            System.out.println("2. Hot Tea - $2.00");
+            System.out.println("3. Hot Chocolate - $2.00");
+            System.out.println("4. Parfait - $3.00");
+            System.out.println("5. Espresso - $1.00");
+            System.out.println("6. Latte/Cappucino - $3.00");
+            System.out.println("7. Iced Tea - $2.50");
+            System.out.println("8. Lemonade - $2.50");
+
+        } else if (mainChoice == 7){
+            // Place an order
+            System.out.println("\n** Place Your Order **");
+
+            // Get the student's full name and room code
+            System.out.print("Enter your full name: ");
+            String studentname = scanner.nextLine();
+            System.out.print("Enter your room code: ");
+            String roomcode = scanner.nextLine();
+            System.out.print("Pick up or delivery: ");
+            String pood = scanner.nextLine();
+
+
+
+            System.out.println("1. Coffee - $1.50");
+            System.out.println("2. Hot Tea - $2.00");
+            System.out.println("3. Hot Chocolate - $2.00");
+            System.out.println("4. Parfait - $3.00");
+            System.out.println("5. Espresso - $1.00");
+            System.out.println("6. Latte/Cappucino - $3.00");
+            System.out.println("7. Iced Tea - $2.50");
+            System.out.println("8. Lemonade - $2.50");
+
+            TigerItem selectedItem1 = null;
+            TigerItem selectedItem2 = null;
+            TigerItem selectedItem3 = null;
+
+            //Ask for snack
+
+            System.out.print("Enter the number of your first drink(Max 3 per order): ");
+            int choice1 = scanner.nextInt(); //red alert should go away once plugged into code
+            if (choice1 == 1) selectedItem1 = coffee;
+            else if (choice1 == 2) selectedItem1 = hotTea;
+            else if (choice1 == 3) selectedItem1 = hotChoco;
+            else if (choice1 == 4) selectedItem1 = parfait;
+            else if (choice1 == 5) selectedItem1 = espresso;
+            else if (choice1 == 6) selectedItem1 = latCap;
+            else if (choice1 == 7) selectedItem1 = iced;
+            else if (choice1 == 8) selectedItem1 = lemonade;
+
+
+            //next snack choice
+            System.out.print("Enter the number of your second drink (or 0 if none): ");
+            int choice2 = scanner.nextInt();
+            if (choice2 == 1) selectedItem2 = coffee;
+            else if (choice2 == 2) selectedItem2 = hotTea;
+            else if (choice2 == 3) selectedItem2 = hotChoco;
+            else if (choice2 == 4) selectedItem2 = parfait;
+            else if (choice2 == 5) selectedItem2 = espresso;
+            else if (choice2 == 6) selectedItem2 = latCap;
+            else if (choice2 == 7) selectedItem2 = iced;
+            else if (choice2 == 8) selectedItem2 = lemonade;
+
+            //choice 3
+            System.out.print("Enter the number of your third drink (or 0 if none): ");
+            int choice3 = scanner.nextInt();
+            if (choice3 == 1) selectedItem3 = coffee;
+            else if (choice3 == 2) selectedItem3 = hotTea;
+            else if (choice3 == 3) selectedItem3 = hotChoco;
+            else if (choice3 == 4) selectedItem3 = parfait;
+            else if (choice3 == 5) selectedItem3 = espresso;
+            else if (choice3 == 6) selectedItem3 = latCap;
+            else if (choice3 == 7) selectedItem3 = iced;
+            else if (choice3 == 8) selectedItem3 = lemonade;
+
+            // Create a SnackOrder object with the student's info and selected snacks
+            TigerOrder order = new TigerOrder(studentname, roomcode, selectedItem1, selectedItem2, selectedItem3, pood);
+
+            // Display the order summary and total price
+            System.out.println("\nOrder Summary:");
+            System.out.println(order);
+            System.out.println("Your snacks will be delivered in 10 minutes or less. Enjoy!");
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+    }
+
