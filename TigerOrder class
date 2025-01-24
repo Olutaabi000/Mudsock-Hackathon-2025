@@ -1,0 +1,43 @@
+public class TigerOrder {
+
+    private String studentName;
+    private String roomCode;  // Room code like G823
+    private TigerItem item1;
+    private TigerItem item2;
+    private TigerItem item3;
+    private String pod;
+
+    // Constructor to initialize the order
+    public TigerOrder(String studentName, String roomCode, TigerItem i1, TigerItem i2, TigerItem i3,String p) {
+        this.studentName = studentName;
+        this.roomCode = roomCode;
+        item1 = i1;
+        item2 = i2;
+        item3 = i3;
+        pod = p;
+    }
+
+    // Method to calculate the total price of the order
+    public double getTotalPrice() {
+        double total = 0;
+        if (item1 != null) total += item1.getPrice2();
+        if (item2 != null) total += item2.getPrice2();
+        if (item3 != null) total += item3.getPrice2();
+        return total;
+    }
+
+
+    public String toString() {
+        String orderDetails = "Student Name: " + studentName + "\n";
+        orderDetails += "Room Code: " + roomCode + "\n";
+        orderDetails += "Items Ordered: \n";
+
+        if (item1 != null) orderDetails += "- " + item1.getName2() + " ($" + item1.getPrice2() + ")\n";
+        if (item2 != null) orderDetails += "- " + item2.getName2() + " ($" + item2.getPrice2() + ")\n";
+        if (item3 != null) orderDetails += "- " + item3.getName2() + " ($" + item3.getPrice2() + ")\n";
+
+        orderDetails += "Total Price: $" + getTotalPrice() + "\n";
+        orderDetails += "**" + pod + "**";
+        return orderDetails;
+    }
+}
