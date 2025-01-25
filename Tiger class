@@ -1,0 +1,31 @@
+public class Tiger {
+    //instance variables for name, price, and description
+    private String name;
+    private String description;
+    private double price;
+
+    //constructor
+    public Tiger(String n, String d, double p){
+        name = n;
+        description = d;
+        price = p;
+    }
+
+    //getter methods for item information
+    public String getName(){
+        return name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    //to string displays all information together
+    public String toString(){
+        return "Item: " + name + "\nDescription: " + description + "\nPrice : $" + price;
+    }
+}
