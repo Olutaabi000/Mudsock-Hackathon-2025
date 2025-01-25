@@ -1,0 +1,76 @@
+public class WeeklyMenu {
+
+    // Define MenuItem objects for each part of Cafe A for every day of the week
+    private CafeItems cafeAPart1Monday;
+    private CafeItems cafeAPart2Monday;
+    private CafeItems cafeAPart1Tuesday;
+    private CafeItems cafeAPart2Tuesday;
+    private CafeItems cafeAPart1Wednesday;
+    private CafeItems cafeAPart2Wednesday;
+    private CafeItems cafeAPart1Thursday;
+    private CafeItems cafeAPart2Thursday;
+    private CafeItems cafeAPart1Friday;
+    private CafeItems cafeAPart2Friday;
+
+    // Constructor to initialize the menus for Cafe A
+    public WeeklyMenu() {
+        // Initialize Cafe A's menu for each day, for two parts each day
+        cafeAPart1Monday = new CafeItems("Pasta", "Spaghetti with marinara sauce", 3.00);
+        cafeAPart2Monday = new CafeItems("Tacos", " tacos with chicken or beef", 3.00);
+
+        cafeAPart1Tuesday = new CafeItems("Burgers", "Grilled beef burgers", 3.00);
+        cafeAPart2Tuesday = new CafeItems("Pizza", "Cheese or Pepperoni pizza", 3.00);
+
+        cafeAPart1Wednesday = new CafeItems("Chicken Nuggets", "Chicken nuggets with dipping sauce", 3.00);
+        cafeAPart2Wednesday = new  CafeItems("Fish and Chips", "Battered fish with crispy fries", 3.00);
+
+        cafeAPart1Thursday = new CafeItems("Grilled Cheese", "Melted cheese sandwich", 3.00);
+        cafeAPart2Thursday = new CafeItems("Mac and Cheese", "Creamy macaroni and cheese", 3.00);
+
+        cafeAPart1Friday = new CafeItems("Hot Dogs", "Grilled hot dogs with condiments", 3.00);
+        cafeAPart2Friday = new CafeItems("Salad", "Garden salad with dressing", 3.00);
+    }
+
+    // Method to display Cafe A's menu for the entire week (two parts for each day)
+    public void displayCafeAMenuForWeek() {
+        System.out.println("Cafe A's Menu for the Week:\n");
+
+        System.out.println("Monday:");
+        System.out.println("1st side -  " +  "\n"  + cafeAPart1Monday);
+        System.out.println( "\n" +  "2nd side -  " + "\n" + cafeAPart2Monday);
+        System.out.println();
+
+        System.out.println("Tuesday:");
+        System.out.println("1st side - " + "\n" + cafeAPart1Tuesday);
+        System.out.println( "\n" +  "2nd side -  " + "\n" + cafeAPart2Tuesday);
+        System.out.println();
+
+        System.out.println("Wednesday:");
+        System.out.println("1st side - " + "\n" + cafeAPart1Wednesday);
+        System.out.println( "\n" +  "2nd side - " + "\n" + cafeAPart2Wednesday);
+        System.out.println();
+
+        System.out.println("Thursday:");
+        System.out.println("1st side - " + "\n" + cafeAPart1Thursday);
+        System.out.println( "\n" +  "2nd side - " + "\n" + cafeAPart2Thursday);
+        System.out.println();
+
+        System.out.println("Friday:");
+        System.out.println("1st side - " + "\n" + cafeAPart1Friday);
+        System.out.println( "\n" +  "2nd side - " + "\n" + cafeAPart2Friday);
+        System.out.println();
+    }
+
+    // Method to display a message about Cafe B and C's menu
+    public void displayCafeBCdisc() {
+        System.out.println("Cafe B and C serve the same things everyday with some some new items!");
+        System.out.println("Cafe B: Beef Nachos - $3.00");
+        System.out.println("Cafe B: International Meal - $3.00");
+        System.out.println("Cafe B: Beef tacos - $3.00");
+        System.out.println("Cafe C: Pizza  - $3.00");
+        System.out.println("Cafe C: Chicken Sandwich - $3.00");
+        System.out.println("Cafe C:  Spicy Chicken Sandwich- $3.00");
+        System.out.println("Cafe C: Pizza Crunchers - $3.00");
+    }
+}
+
