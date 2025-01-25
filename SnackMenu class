@@ -1,0 +1,35 @@
+public class SnackMenu {
+
+    // Instance variables
+    private String itemName;
+    private String itemDescription;
+    private double itemPrice;
+
+    // Constructor
+    public SnackMenu(String name, String description, double price) {
+        itemName = name;
+        itemDescription = description;
+        itemPrice = price;
+    }
+
+    // Getter methods
+    public String getName() {
+        return itemName;
+    }
+
+    public String getDescription() {
+        return itemDescription;
+    }
+
+    public double getPrice() {
+        return itemPrice;
+    }
+
+    // toString() method to display the snack item details
+    public String toString() {
+        return "Snack Item: " + itemName + "\n" +
+                "Description: " + itemDescription + "\n" +
+                "Price: $" + itemPrice;
+    }
+}
+
