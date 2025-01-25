@@ -1,0 +1,32 @@
+public class CafeItems {
+
+    // Instance variables for name, description, and price
+    private String name;
+    private String description;
+    private double price;
+
+    // Constructor to initialize MenuItem
+    public CafeItems(String n, String d, double p) {
+        name = n;
+        description = d;
+        price = p;
+    }
+
+    // Getter methods for name, description, and price
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    // Default toString() method without overriding
+    public String toString() {
+        return "Item: " + name + "\nDescription: " + description + "\nPrice: $" + price;
+    }
+}
