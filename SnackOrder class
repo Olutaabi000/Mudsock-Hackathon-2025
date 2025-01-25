@@ -1,0 +1,30 @@
+public class SnackOrder {
+
+    private String studentName;
+    private String roomCode;  // Room code like G823
+    private SnackItem item1;
+    private SnackItem item2;
+    private SnackItem item3;
+    private String pod;
+
+    // Constructor to initialize the order
+    public SnackOrder(String studentName, String roomCode, SnackItem item1, SnackItem item2, SnackItem item3,String p) {
+        this.studentName = studentName;
+        this.roomCode = roomCode;
+        this.item1 = item1;
+        this.item2 = item2;
+        this.item3 = item3;
+        pod = p;
+    }
+
+    // Method to calculate the total price of the order
+    public double getTotalPrice() {
+        double total = 0;
+        if (item1 != null) total += item1.getPrice();
+        if (item2 != null) total += item2.getPrice();
+        if (item3 != null) total += item3.getPrice();
+        return total;
+    }
+
+
+    public String toString() {
