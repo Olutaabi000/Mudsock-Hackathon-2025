@@ -1,0 +1,200 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FHS FoodFlow</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+<h1>FHS FoodFlow</h1>
+<p>Choose A Cafe, Order Online, Get it Delivered!</p>
+</header>
+
+<!--Navigation Bar-->
+<nav>
+<a href="#">Order Online</a>
+<a href="#">Delivery</a>
+<a href="#">Leave A Suggestion</a>
+</nav>
+
+<!--Buttons for Cafe/Shop options-->
+<div class="main-options"> <!--Classes to help organize formatting -->
+<div class="cafe-button">
+<img src="https://www.candyboximages.com/wp/wp-content/uploads/051_018_060412.jpg" alt="Cafe 1">
+<h2>Cafe A</h2>
+<p>New, semi-weekly changing menu featuring fresh meals and desserts.</p>
+<a href="#"
+class="order-button"> View Menu</a> <!--links to "#" or top of page (filled w/ new links in future)-->
+</div>
+<div class="cafe-button">
+<img src="https://th.bing.com/th/id/R.c686950094e8cd0b4f4bc0a4cc95436b?rik=BYclNOELnmwQ6Q&riu=http%3a%2f%2fmedia.npr.org%2fassets%2fimg%2f2011%2f06%2f07%2f3450266-2298586ac3b4719f62025b2b6d9cf1083a427476-s6-c30.jpg&ehk=JPhgN4yUerQaO8OGArZLXRMotGDYl0E%2fE48hsMrUq8A%3d&risl=&pid=ImgRaw&r=0" alt="Cafe A">
+<h2>Cafe B</h2>
+<p> Piping-hot assortments of pizzas, calzones, and more! Options change daily.</p>
+<a href="#"
+class="order-button">View Menu</a>
+</div>
+<div class="cafe-button">
+<img src="https://th.bing.com/th/id/R.09b0545e4838c5b25f6bb981754ccb38?rik=nvyg%2b9HWvFjGaQ&riu=http%3a%2f%2fwww.theslowcook.com%2fwp-content%2fuploads%2f2010%2f11%2fBoulder-154.jpg&ehk=bUXM70H4VPueqCnglz7RFwqFQ34doxT9G5Hw%2fC%2bU%2fKU%3d&risl=&pid=ImgRaw&r=0" alt="Cafe C">
+<h2>Cafe C</h2>
+<p>Refreshing and light salads, sandwiches, and sushi. Light beverage options.</p>
+<a href="#"
+class="order-button">View Menu</a>
+</div>
+<div class="cafe-button">
+<img src="https://nest.lps53.org/wp-content/uploads/2018/11/nest-Charlene-Nguyenmain2.jpg" alt="Tiger Cafe">
+<h2>Tiger Cafe</h2>
+<p>A variety of drinks, from coffee to fruity specials!</p>
+<a href="#"
+class="order-button">View Menu</a>
+</div>
+<div class="cafe-button">
+<img src="https://i.pinimg.com/474x/4f/d9/13/4fd9138c6c9859f4d79f890fb2fd4d8c.jpg" alt="Snack Shop">
+<h2>Snack Shop</h2>
+<p>Mixed assortments of delicious snacks and drinks!</p>
+<a href="#"
+class="order-button"> View Menu</a>
+</div>
+<!--More shop buttons can be added for future ref.-->
+
+</div>
+<br>
+<br>
+<br>
+<!--Multiple breaks to display footer and last button-->
+<footer>
+<p>&copy; FHS FoodFlow. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+--------------
+//css
+body {
+font-family: monospace;
+margin: 0;
+padding: 0;
+background-color: #f7eded;
+}
+
+header {
+position: relative;
+background-image:url("https://scontent-ord5-3.xx.fbcdn.net/v/t39.30808-6/433541423_848483173958127_7127315670473162075_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=5wnqrfKsrREQ7kNvgEQb9Sf&_nc_zt=23&_nc_ht=scontent-ord5-3.xx&_nc_gid=AQs-Jls8Gnf-rooCe7P4BYa&oh=00_AYCOcu_U1UVlAAhQySypRK4HVEJ5mrE_R7x70b5rFVF2Hw&oe=6798C5FC");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+color: #fff;
+padding: 20px;
+text-align: center;
+
+}
+
+/* Shading background image*/
+header::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(128, 11, 11, 0.35);
+z-index: 1; /* Keeps text in the front layer */
+}
+header h1,
+header p {
+position: relative;
+z-index: 2;
+font-size: 1.1em;
+}
+
+header h1 {
+margin: 0;
+font-size: 2.5em;
+}
+
+/* navigation bar */
+nav {
+display: flex;
+justify-content: center;
+background-color: #971111;
+padding: 10px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin: 0 17px;
+font-size: 1.2em;
+}
+
+nav a:hover {
+text-decoration: underline;
+}
+
+.main-options {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /*change to fit pref */
+gap: 20px;
+padding: 20px;
+}
+
+.cafe-button {
+background-color: #fff;
+border: 2px solid #a32525;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+transition: transform 0.2s;
+}
+
+.cafe-button:hover {
+transform: scale(1.05);
+}
+
+.cafe-button img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.cafe-button h2 {
+text-align: center;
+background-color: #9d1515;
+color: white;
+margin: 0;
+padding: 10px;
+}
+
+.cafe-button p {
+padding: 5px;
+text-align: center;
+}
+
+.order-button {
+display: block;
+width: 80%;
+margin: 10px auto;
+padding: 10px;
+text-align: center;
+background-color: #c12424;
+color: white;
+text-decoration: none;
+border-radius: 5px;
+font-weight: bold;
+}
+
+.order-button:hover {
+background-color: #6e0404;
+}
+
+footer {
+text-align: center;
+background-color: #b22222;
+color: white;
+padding: 10px;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
